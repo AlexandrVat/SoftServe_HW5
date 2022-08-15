@@ -1,5 +1,5 @@
 // Task -1 
-/*
+
 let mentor = { 
     course: "JS fundamental", 
     duration: 3,
@@ -136,6 +136,65 @@ console.log(workerList);
 console.log(workerList.sort((a, b) => a.experience > b.experience ? 1 : -1));
 workerList.forEach(function(elem){console.log(elem.fullName+' salary : '+elem.showSalary() ); });
 
-*/
+
 
 // Task -5 
+
+class GeometricFigure {
+      getArea() {
+       return 0;
+      }
+
+      toString() {
+        return Object.getPrototypeOf(this).constructor.name;
+     }
+ }
+
+ class Triangle extends GeometricFigure {
+      constructor (side, height) {
+                 super();
+                 this.side = side;
+                 this.height = height;
+      }
+      getArea() {
+        return 0.5 * this.side * this.height;
+       } 
+ }
+
+ class Square extends GeometricFigure {
+        constructor (side) {
+          super();
+          this.side = side;         
+      }
+      getArea() {
+          return  this.side * this.side;
+      } 
+ }
+
+ class  Circle extends GeometricFigure{
+        constructor (radius) {
+             super();
+             this.radius = radius;         
+            }
+        getArea() {
+             
+             return  Math.PI * this.radius  * this.radius;
+            } 
+
+ }
+
+ const figures = [new Triangle(5, 15), new Square(17), new Circle(20)];
+
+function handleFigures(arrFigures){
+  let allkol = 0;
+  arrFigures.forEach(function(elem){
+      if (elem instanceof GeometricFigure){
+          console.log('Geometric figure:'+ elem.toString() + ' arrea:'+ elem.getArea()); 
+          allkol += elem.getArea();      
+       }
+  })
+   console.log('total area - '+allkol);
+}
+
+
+ handleFigures(figures);
